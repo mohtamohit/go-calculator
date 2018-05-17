@@ -24,6 +24,15 @@ func TestCanMultiply(t *testing.T) {
 }
 
 func TestCanDivide(t *testing.T) {
-	result := Divide(6, 3)
+	// division by zero should not be allowed
+	result, _ := Divide(6, 3)
 	logAndAssert(2, result, "Division of 6 by 3 should yield 2 but yielded,", t)
+}
+
+func TestDivisionByZeroNotAllowed(t *testing.T) {
+	_, err := Divide(6, 0)
+	if err.Error() != "Division by zero is not allowed" {
+		t.Log("Wrong error message for division by zero")
+		t.Fail()
+	}
 }

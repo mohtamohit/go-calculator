@@ -1,5 +1,9 @@
 package calculator
 
+import (
+	"errors"
+)
+
 // Add performs addition of two numbers
 func Add(x, y int) int {
 	return x + y
@@ -16,6 +20,9 @@ func Multiply(x, y int) int {
 }
 
 // Divide performs division of two numbers
-func Divide(x, y int) int {
-	return x / y
+func Divide(x, y int) (int, error) {
+	if y == 0 {
+		return 0, errors.New("Division by zero is not allowed")
+	}
+	return x / y, nil
 }
