@@ -18,7 +18,7 @@ func calculate(x int, y int, operation string) int {
 		res, _ := calculator.Divide(x, y)
 		return res
 	}
-	fmt.Println("Please enter a valid operation.")
+	fmt.Println("Please enter a valid operation. The operation will anyway return -1 in this case, which might not be the desired output")
 	return -1
 }
 
