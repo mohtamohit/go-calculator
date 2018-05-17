@@ -2,12 +2,15 @@ package calculator
 
 import "testing"
 
-func TestCanAdd(t *testing.T) {
-	result := Add(2, 3)
-	if result != 5 {
-		t.Log("Addition of 2 and 3 should yield 5 but yielded", result)
+func logAndAssert(expected, actual int, message string, t *testing.T) {
+	if expected != actual {
+		t.Log(message, actual)
 		t.Fail()
 	}
+}
+func TestCanAdd(t *testing.T) {
+	result := Add(2, 3)
+	logAndAssert(5, result, "Addition of 2 and 3 should yield 5 but yielded", t)
 }
 
 func TestCanSubtract(t *testing.T) {
