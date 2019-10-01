@@ -26,3 +26,14 @@ func Divide(x, y int) (int, error) {
 	}
 	return x / y, nil
 }
+
+func Pow(x, y int) (int, error) {
+	if y < 0 {
+		return 0, errors.new("Power of negative is not supported")
+	}
+	tmp := 1
+	for i := 0; i < y; i++ {
+		tmp *= x
+	}
+	return tmp
+}
