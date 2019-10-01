@@ -18,6 +18,9 @@ func calculate(x int, y int, operation string) int {
 		res, _ := calculator.Divide(x, y)
 		return res
 	}
+	case "POW", "pow":
+		res, _ := calculator.Pow(x, y)
+		return res
 	fmt.Println("Please enter a valid operation. The operation will anyway return -1 in this case, which might not be the desired output")
 	return -1
 }
@@ -26,7 +29,7 @@ func main() {
 	var s1, s2, s3 string
 
 	for {
-		fmt.Println("Enter your command (eg. 1 2 ADD, 2 3 SUB, 1 3 MUL, 6 2 DIV): ")
+		fmt.Println("Enter your command (eg. 1 2 ADD, 2 3 SUB, 1 3 MUL, 6 2 DIV, 8 3 POW): ")
 		fmt.Scanln(&s1, &s2, &s3)
 
 		num1, err := strconv.Atoi(s1)

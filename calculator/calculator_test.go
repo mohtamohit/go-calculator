@@ -33,3 +33,17 @@ func TestDivisionByZeroNotAllowed(t *testing.T) {
 	_, err := Divide(6, 0)
 	require.EqualError(t, err, "Division by zero is not allowed", "Wrong error message")
 }
+
+
+func TestDivide(t *testing.T) {
+	result, err := Power(6, 3)
+	if err != nil {
+		t.Log("An error occured: ", err.Error())
+	}
+	require.Equal(t, 216, result, "6 to the power of 3 should yield 216 but yielded %d", result)
+}
+
+func TestDivisionByZeroNotAllowed(t *testing.T) {
+	_, err := Power(6, -1)
+	require.EqualError(t, err, "Power of negative is not supported", "Wrong error message")
+}
